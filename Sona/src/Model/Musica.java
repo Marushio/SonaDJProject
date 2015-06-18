@@ -8,12 +8,19 @@ package Model;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
 
 /**
  *
  * @author a1320726
  */
+@Entity
 public class Musica {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
     private int idMusica;
     private int ano;
     private String nomeMusica;

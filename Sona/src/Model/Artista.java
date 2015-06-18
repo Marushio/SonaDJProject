@@ -6,11 +6,19 @@
 
 package Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+
 /**
  *
  * @author a1320726
  */
+@Entity
 public class Artista {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
     private int idArista;
     private String nomeArtista;
 
