@@ -7,19 +7,27 @@
 package Model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author a1320726
  */
 @Entity
+
+
 public class Album {
+    
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int idAlbum;
+    
     private String nomeAlbum;
     private int isrc;
     private int ano;

@@ -6,12 +6,13 @@
 
 package Model;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+
 
 /**
  *
@@ -24,29 +25,46 @@ public class Musica {
     private int idMusica;
     private int ano;
     private String nomeMusica;
-    private double duração;
-    private int idAlbum;
-    private int idArista;
+    private double duracao;
+    
+    @JoinColumn(name = "idAlbum")
+    private Album album;
+    
+    @JoinColumn(name = "idArtista")
+    private Artista artista;
     private String genero;
     private int isrc;
-    
-    
-    
 
+    public double getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(double duracao) {
+        this.duracao = duracao;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
+    public Artista getArtista() {
+        return artista;
+    }
+
+    public void setArtista(Artista artista) {
+        this.artista = artista;
+    }
+   
     public int getIdMusica() {
         return idMusica;
     }
 
     public void setIdMusica(int idMusica) {
         this.idMusica = idMusica;
-    }
-
-    public int getIdAlbum() {
-        return idAlbum;
-    }
-
-    public void setIdAlbum(int idAlbum) {
-        this.idAlbum = idAlbum;
     }
 
     public int getAno() {
@@ -66,11 +84,11 @@ public class Musica {
     }
 
     public double getDuração() {
-        return duração;
+        return duracao;
     }
 
-    public void setDuração(double duração) {
-        this.duração = duração;
+    public void setDuração(double duracao) {
+        this.duracao = duracao;
     }
 
     public String getNomeMusica() {
