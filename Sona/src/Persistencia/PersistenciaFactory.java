@@ -12,8 +12,10 @@ package Persistencia;
 public class PersistenciaFactory {
     
     public static IArtistaDAO obterArtistaDAO() {
-         return new ArtistaDAO();    
-        
+         return new ArtistaDAO();            
     }   
+    public static IUsuarioDAO obterUsuarioDAO(){
+        return  new UsuarioDAO();
+    }
     
 }
