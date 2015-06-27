@@ -15,13 +15,13 @@ import java.util.Collection;
  * @author Marcio
  */
 public class ControleTelaPlayList implements IControleTelaPlayList{
-    PersistenciaFactory persistenciaFactory;
+    
     
     
     public Collection coletarFavoritos(String usuario) {        
         Collection Favoritos = new ArrayList(); 
-        persistenciaFactory =  new PersistenciaFactory(); 
-        IPlayListDAO playListDAO = persistenciaFactory.obterPlayListDAO();       
+        
+        IPlayListDAO playListDAO = PersistenciaFactory.obterPlayListDAO();       
         Favoritos = playListDAO.obterPlayList(usuario);
         return Favoritos;   
     }
