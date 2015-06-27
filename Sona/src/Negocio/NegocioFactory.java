@@ -15,5 +15,7 @@ public class NegocioFactory {
         return new ControleLogin();
     }
     
-    
+    public static IControleCadastroMusica obterControleCadastroMusica(){
+        return  new ControleCadatroMusica();
+    }
 }

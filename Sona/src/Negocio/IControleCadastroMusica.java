@@ -5,10 +5,12 @@
  */
 package Negocio;
 
+import Model.Musica;
+
 /**
  *
  * @author Luiz
  */
 public interface IControleCadastroMusica {
-    public abstract boolean 
+    public abstract void cadastrarMusica(Musica musica); 
 }

@@ -5,6 +5,9 @@
  */
 package IU;
 
+import Model.Album;
+import Model.Musica;
+
 /**
  *
  * @author Luiz
@@ -31,19 +34,17 @@ public class TelaCadastrarMusica extends javax.swing.JPanel {
         lbNomeMusica = new javax.swing.JLabel();
         lbAnoMusica = new javax.swing.JLabel();
         lbDuracao = new javax.swing.JLabel();
-        lbNomeArtista = new javax.swing.JLabel();
-        lbNomeAlbum = new javax.swing.JLabel();
-        lbIsrc = new javax.swing.JLabel();
-        lbAnoAlbum = new javax.swing.JLabel();
         btCadastrar = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         tfNomeMusica = new javax.swing.JTextField();
         tfAnoMusica = new javax.swing.JTextField();
         tfDuracao = new javax.swing.JTextField();
-        tfNomeArtista = new javax.swing.JTextField();
-        tfIsrc = new javax.swing.JTextField();
-        tfNomeAlbum = new javax.swing.JTextField();
-        tfAnoAlbum = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         lbTitulo.setText("Tela de cadastro de música");
 
@@ -53,15 +54,7 @@ public class TelaCadastrarMusica extends javax.swing.JPanel {
 
         lbDuracao.setText("Duração.:");
 
-        lbNomeArtista.setText("Nome do artista.:");
-
-        lbNomeAlbum.setText("Nome do Album.:");
-
-        lbIsrc.setText("ISRC.:");
-
-        lbAnoAlbum.setText("Ano do album.:");
-
-        btCadastrar.setText("Cadastrar");
+        btCadastrar.setText("Nova musica");
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastrarActionPerformed(evt);
@@ -70,25 +63,35 @@ public class TelaCadastrarMusica extends javax.swing.JPanel {
 
         btCancelar.setText("Cancelar");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setText("Artista.:");
+
+        jLabel2.setText("Album.:");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton1.setText("Novo artista");
+
+        jButton2.setText("Novo album");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbTitulo)
+                .addGap(127, 127, 127))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(btCadastrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addComponent(btCancelar)
+                .addGap(69, 69, 69))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbNomeAlbum)
-                            .addComponent(lbAnoAlbum))
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfNomeAlbum)
-                            .addComponent(tfAnoAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbIsrc)
-                        .addGap(64, 64, 64)
-                        .addComponent(tfIsrc))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbNomeMusica)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -97,23 +100,19 @@ public class TelaCadastrarMusica extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbAnoMusica)
                             .addComponent(lbDuracao)
-                            .addComponent(lbNomeArtista))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfNomeArtista)
-                            .addComponent(tfAnoMusica)
-                            .addComponent(tfDuracao))))
-                .addContainerGap(134, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbTitulo)
-                .addGap(127, 127, 127))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(btCadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btCancelar)
-                .addGap(69, 69, 69))
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfAnoMusica, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(tfDuracao)
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,27 +130,21 @@ public class TelaCadastrarMusica extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbDuracao)
                     .addComponent(tfDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNomeArtista)
-                    .addComponent(tfNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIsrc)
-                    .addComponent(tfIsrc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNomeAlbum)
-                    .addComponent(tfNomeAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbAnoAlbum)
-                    .addComponent(tfAnoAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastrar)
                     .addComponent(btCancelar))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,27 +152,40 @@ public class TelaCadastrarMusica extends javax.swing.JPanel {
         // TODO add your handling code here:
         String nomeMusica, nomeAlbum, nomeArtista;
         int anoMusica, anoAlbum, isrc;
-        double duracao;
+        double duracao;  
+        try{
+            Album album = new Album();
+            Musica musica = new Musica();
+            nomeMusica = lbNomeMusica.getText();
+            anoMusica = Integer.parseInt(lbNomeMusica.getText());
+            anoAlbum = Integer.parseInt(lbNomeMusica.getText());
+            isrc = Integer.parseInt(lbNomeMusica.getText());
+            duracao = Double.parseDouble(lbNomeMusica.getText());
+           
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+       
+        
     }//GEN-LAST:event_btCadastrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btCancelar;
-    private javax.swing.JLabel lbAnoAlbum;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbAnoMusica;
     private javax.swing.JLabel lbDuracao;
-    private javax.swing.JLabel lbIsrc;
-    private javax.swing.JLabel lbNomeAlbum;
-    private javax.swing.JLabel lbNomeArtista;
     private javax.swing.JLabel lbNomeMusica;
     private javax.swing.JLabel lbTitulo;
-    private javax.swing.JTextField tfAnoAlbum;
     private javax.swing.JTextField tfAnoMusica;
     private javax.swing.JTextField tfDuracao;
-    private javax.swing.JTextField tfIsrc;
-    private javax.swing.JTextField tfNomeAlbum;
-    private javax.swing.JTextField tfNomeArtista;
     private javax.swing.JTextField tfNomeMusica;
     // End of variables declaration//GEN-END:variables
 }
