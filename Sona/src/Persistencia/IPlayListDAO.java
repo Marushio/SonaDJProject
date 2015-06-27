@@ -6,6 +6,7 @@
 package Persistencia;
 
 import Model.PlayList;
+import Model.Usuario;
 import java.util.List;
 
 /**
@@ -14,6 +15,6 @@ import java.util.List;
  */
 public interface IPlayListDAO {
     public abstract void adicionarPlayList(PlayList playList);
-    public abstract List obterPlayList(PlayList playList);
+    public abstract List obterPlayList(String usuario);
     
 }

@@ -18,4 +18,8 @@ public class NegocioFactory {
     public static IControleCadastroMusica obterControleCadastroMusica(){
         return  new ControleCadatroMusica();
     }
+    
+    public static IControleTelaPlayList obterControleTelaPlayList (){
+        return  new ControleTelaPlayList();
+    }
 }

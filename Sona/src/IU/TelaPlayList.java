@@ -5,7 +5,12 @@
  */
 package IU;
 
+import Model.PlayList;
 import Model.Usuario;
+import Negocio.IControleTelaPlayList;
+import Negocio.NegocioFactory;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
  *
@@ -20,7 +25,28 @@ private Usuario usuario=null;
         this.usuario = usuario;
         initComponents();
         jlbUsuario.setText(usuario.getLogin());
+        //Inicar comobo box
+        NegocioFactory negocioFactory =  new NegocioFactory();
+        IControleTelaPlayList controlerTelaPlayList;
+        
+        controlerTelaPlayList = negocioFactory.obterControleTelaPlayList();
+        //otem marcas e adicionar ao combobox
+        Collection marcasDisponiveis =controlerTelaPlayList.coletarFavoritos(usuario.getLogin());
+        Iterator i = marcasDisponiveis.iterator();
+        
+        //jcbFavoritos.addItem("Todos");
+        if (marcasDisponiveis == null || marcasDisponiveis.isEmpty()){
+            jcbFavoritos.addItem("Sem Favoritos");
+        }else{
+            while(i.hasNext()) {
+                PlayList pl = (PlayList) i.next();
+                jcbFavoritos.addItem(pl.getMusica().getNomeMusica());
+            }
+        }
+        
+      
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +59,7 @@ private Usuario usuario=null;
 
         jlbUsuario = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        jcbFavoritos = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -47,7 +73,7 @@ private Usuario usuario=null;
 
         jButton1.setText("Add nova musica");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbFavoritos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,7 +100,7 @@ private Usuario usuario=null;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jcbFavoritos, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(109, 109, 109))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -88,7 +114,7 @@ private Usuario usuario=null;
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbFavoritos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,10 +134,10 @@ private Usuario usuario=null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JComboBox jcbFavoritos;
     private javax.swing.JLabel jlbUsuario;
     // End of variables declaration//GEN-END:variables
 }

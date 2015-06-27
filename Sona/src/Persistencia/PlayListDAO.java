@@ -36,19 +36,20 @@ public class PlayListDAO implements IPlayListDAO{
     }
 
     @Override
-    public List obterPlayList(PlayList playList) {
+    public List obterPlayList(String usuario) {
         EntityManager em=HibernateEntityManagerFactory.getEntityManager();
         List playlist = null;      
         try{
             Query q = em.createQuery("SELECT object(o) "
                                     + "FROM PlayList as o"
                                     + "WHERE login = '"
-                                    + playList.getUsuario().getLogin() + "'");
+                                    + usuario+ "'");
+            //if(q.getResultList() =)
             playlist = q.getResultList();
 
             
         }catch(Exception e){
-          e.printStackTrace();
+             e.printStackTrace();
         }finally{
           if(em!=null){
               em.close();
