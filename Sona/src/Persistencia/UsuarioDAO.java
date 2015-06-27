@@ -15,6 +15,10 @@ import javax.persistence.Query;
  */
 public class UsuarioDAO implements IUsuarioDAO{
 
+    UsuarioDAO() {
+        
+    }
+    
     @Override
     public void novoUsuario(Usuario usuario) {
         EntityManager em = HibernateEntityManagerFactory.getEntityManager();

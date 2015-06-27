@@ -19,10 +19,8 @@ public class Usuario {
 
     public Usuario() {
     
-    }
+    }    
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    int id;
     String login;
     String senha;
 
@@ -40,7 +38,5 @@ public class Usuario {
 
     public String getSenha() {
         return senha;
-    }
-    
-    
+    }    
 }
