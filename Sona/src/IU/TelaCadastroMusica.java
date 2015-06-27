@@ -40,12 +40,12 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         tfNomeMusica = new javax.swing.JTextField();
         tfAnoMusica = new javax.swing.JTextField();
         tfDuracao = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        cbNomeArtista = new javax.swing.JComboBox();
+        lbNomeArtista = new javax.swing.JLabel();
+        lbNomeAlbum = new javax.swing.JLabel();
+        cbNomeAlbum = new javax.swing.JComboBox();
+        btNovoArtista = new javax.swing.JButton();
+        btNovoAlbum = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,17 +66,27 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
 
         btCancelar.setText("Cancelar");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbNomeArtista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel1.setText("Artista.:");
+        lbNomeArtista.setText("Artista.:");
 
-        jLabel2.setText("Album.:");
+        lbNomeAlbum.setText("Album.:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbNomeAlbum.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setText("Novo artista");
+        btNovoArtista.setText("Novo artista");
+        btNovoArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoArtistaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Novo album");
+        btNovoAlbum.setText("Novo album");
+        btNovoAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoAlbumActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,18 +113,18 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbAnoMusica)
                             .addComponent(lbDuracao)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(lbNomeArtista)
+                            .addComponent(lbNomeAlbum))
                         .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbNomeArtista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfAnoMusica, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                             .addComponent(tfDuracao)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cbNomeAlbum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btNovoArtista)
+                    .addComponent(btNovoAlbum))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -135,14 +145,14 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
                     .addComponent(tfDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(cbNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNomeArtista)
+                    .addComponent(btNovoArtista))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(lbNomeAlbum)
+                    .addComponent(cbNomeAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btNovoAlbum))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastrar)
@@ -194,6 +204,20 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btCadastrarActionPerformed
 
+    private void btNovoArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoArtistaActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroArtista tca = new TelaCadastroArtista();
+        tca.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btNovoArtistaActionPerformed
+
+    private void btNovoAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoAlbumActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroAlbum tca = new TelaCadastroAlbum(null);
+        tca.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btNovoAlbumActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -202,15 +226,15 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btCancelar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btNovoAlbum;
+    private javax.swing.JButton btNovoArtista;
+    private javax.swing.JComboBox cbNomeAlbum;
+    private javax.swing.JComboBox cbNomeArtista;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbAnoMusica;
     private javax.swing.JLabel lbDuracao;
+    private javax.swing.JLabel lbNomeAlbum;
+    private javax.swing.JLabel lbNomeArtista;
     private javax.swing.JLabel lbNomeMusica;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JTextField tfAnoMusica;

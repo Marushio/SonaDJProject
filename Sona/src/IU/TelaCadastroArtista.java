@@ -5,6 +5,10 @@
  */
 package IU;
 
+import Model.Artista;
+import Negocio.IControleCadastro;
+import Negocio.NegocioFactory;
+
 /**
  *
  * @author Luiz
@@ -27,18 +31,23 @@ public class TelaCadastroArtista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        lbTitulo = new javax.swing.JLabel();
+        lbNomeArtista = new javax.swing.JLabel();
+        tfNomeArtista = new javax.swing.JTextField();
+        brSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Tela de cadastro do Artista");
+        lbTitulo.setText("Tela de cadastro do Artista");
 
-        jLabel2.setText("Nome do artista.:");
+        lbNomeArtista.setText("Nome do artista.:");
 
-        jButton1.setText("Salvar novo Artista");
+        brSalvar.setText("Salvar novo Artista");
+        brSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -48,32 +57,44 @@ public class TelaCadastroArtista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(128, 128, 128)
-                        .addComponent(jLabel1))
+                        .addComponent(lbTitulo))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel2)
+                        .addComponent(lbNomeArtista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(83, 83, 83)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(brSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(lbTitulo)
                 .addGap(86, 86, 86)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbNomeArtista)
+                    .addComponent(tfNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(brSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void brSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brSalvarActionPerformed
+        // TODO add your handling code here:
+        IControleCadastro controleCadastro = NegocioFactory.obterControleCadastro();
+        Artista artista = new Artista();
+        String nome = lbNomeArtista.getText();
+        artista.setNomeArtista(nome);
+        controleCadastro.cadastrarArtista(artista);
+        TelaCadastroAlbum tca = new TelaCadastroAlbum(artista);
+        tca.setVisible(true);
+        this.dispose();        
+    }//GEN-LAST:event_brSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,9 +102,9 @@ public class TelaCadastroArtista extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton brSalvar;
+    private javax.swing.JLabel lbNomeArtista;
+    private javax.swing.JLabel lbTitulo;
+    private javax.swing.JTextField tfNomeArtista;
     // End of variables declaration//GEN-END:variables
 }

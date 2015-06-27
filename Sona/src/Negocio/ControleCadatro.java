@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Luiz
  */
-public class ControleCadatroMusica implements IControleCadastroMusica{
+public class ControleCadatro implements IControleCadastro{
 
     @Override
     public void cadastrarMusica(Musica musica) {
