@@ -5,6 +5,9 @@
  */
 package Persistencia;
 
+import Model.Musica;
+import java.util.List;
+
 /**
  *
  * @author Luiz
