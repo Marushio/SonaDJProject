@@ -10,7 +10,7 @@ package Negocio;
  * @author Luiz
  */
 public class NegocioFactory {
-    public static IControlePrincipal obterControleLogin(){
-        return new ControlePrincipal();
+    public static IControleLogin obterControleLogin(){
+        return new ControleLogin();
     }
 }
