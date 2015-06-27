@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Luiz
  */
-public interface IControleCadastroMusica {
+public interface IControleCadastro {
     public abstract void cadastrarMusica(Musica musica); 
     public abstract void cadastrarAlbum(Album album);
     public abstract void cadastrarArtista(Artista artista);
