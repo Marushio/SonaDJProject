@@ -9,11 +9,6 @@ package Negocio;
  *
  * @author Luiz
  */
-public class NegocioFactory {
-    
-    public static IControleLogin obterControleLogin(){
-        return new ControleLogin();
-    }
-    
-    
+public interface IControleCadastroMusica {
+    public abstract boolean 
 }

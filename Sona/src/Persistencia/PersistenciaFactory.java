@@ -19,4 +19,7 @@ public class PersistenciaFactory {
         return  new UsuarioDAO();
     }
     
+    public static IMusicaDAO obterMusicaDAO(){
+        return new MusicaDAO();
+    }
 }
