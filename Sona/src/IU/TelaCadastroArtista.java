@@ -9,7 +9,7 @@ package IU;
  *
  * @author Luiz
  */
-public class TelaCadastroArtista extends javax.swing.JPanel {
+public class TelaCadastroArtista extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastroArtista
@@ -32,14 +32,16 @@ public class TelaCadastroArtista extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jLabel1.setText("Tela de cadastro do Artista");
 
         jLabel2.setText("Nome do artista.:");
 
         jButton1.setText("Salvar novo Artista");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -69,8 +71,14 @@ public class TelaCadastroArtista extends javax.swing.JPanel {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 65, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
