@@ -18,5 +18,8 @@ public class PersistenciaFactory {
     public static IUsuarioDAO obterUsuarioDAO(){
         return  new UsuarioDAO();
     }
+    public static IPlayListDAO obterPlayListDAO(){
+        return  new PlayListDAO();
+    }
     
 }
