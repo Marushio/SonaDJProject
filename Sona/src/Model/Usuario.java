@@ -6,8 +6,6 @@
 package Model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 
 /**
@@ -19,7 +17,8 @@ public class Usuario {
 
     public Usuario() {
     
-    }    
+    }
+    
     @Id
     private String login;
     private String senha;
