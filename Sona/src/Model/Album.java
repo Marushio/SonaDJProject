@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -31,7 +33,10 @@ public class Album {
     private String nomeAlbum;
     private int isrc;
     private int ano;
-    private int idArtista;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idArista")
+    private Artista artista;
 
     public int getIdAlbum() {
         return idAlbum;
@@ -65,13 +70,15 @@ public class Album {
         this.ano = ano;
     }
 
-    public int getIdArtista() {
-        return idArtista;
+    public Artista getArtista() {
+        return artista;
     }
 
-    public void setIdArtista(int idArtista) {
-        this.idArtista = idArtista;
+    public void setArtista(Artista artista) {
+        this.artista = artista;
     }
+    
+  
     
     
 }

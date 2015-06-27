@@ -12,6 +12,9 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -27,10 +30,11 @@ public class Musica {
     private String nomeMusica;
     private double duracao;
     
-    
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idAlbum")
     private Album album;
     
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idArtista")
     private Artista artista;
     private String genero;

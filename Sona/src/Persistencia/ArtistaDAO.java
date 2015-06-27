@@ -20,7 +20,7 @@ public class ArtistaDAO implements IArtistaDAO{
     
     @Override
     public void novoArtista(Artista artista) {
-        EntityManager em=HibernateEntityManagerFactory.getEntityManager();
+        EntityManager em = HibernateEntityManagerFactory.getEntityManager();
       try{
           em.getTransaction().begin();
           em.persist(artista);
