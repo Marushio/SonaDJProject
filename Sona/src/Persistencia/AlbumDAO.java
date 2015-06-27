@@ -56,7 +56,7 @@ public class AlbumDAO implements IAlbumDAO{
         }return album;
     }
     public List obterTodosAlbum() {
-         EntityManager em=HibernateEntityManagerFactory.getEntityManager();
+        EntityManager em=HibernateEntityManagerFactory.getEntityManager();
         List album = null;
         try{
             Query q = em.createQuery("SELECT object(o) "

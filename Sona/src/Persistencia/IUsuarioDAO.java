@@ -13,5 +13,5 @@ import Model.Usuario;
  */
 public interface IUsuarioDAO {
     public abstract void adicionarUsuario(Usuario usuario);
-    public Usuario obterUsuario(String login);
+    public abstract Usuario obterUsuario(String login);
 }

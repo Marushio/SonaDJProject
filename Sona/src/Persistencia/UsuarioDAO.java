@@ -38,10 +38,10 @@ public class UsuarioDAO implements IUsuarioDAO{
         EntityManager em = HibernateEntityManagerFactory.getEntityManager();
         Usuario usuario = null;
         try{
-            Query q = em.createQuery("SELECT object(o)"
-                                    + "FROM Usuario as o"
+            Query q = em.createQuery("SELECT object(o) "
+                                    + "FROM Usuario as o "
                                     + "WHERE login = '"
-                                    + login+ "'");
+                                    +login+"'");
             usuario = (Usuario) q.getSingleResult();
         }catch(Exception e){
             e.printStackTrace();
