@@ -6,24 +6,21 @@
 package Persistencia;
 
 import Model.PlayList;
-import Model.Usuario;
 import java.util.List;
-import java.util.Random;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import static org.hibernate.hql.internal.antlr.HqlSqlTokenTypes.WHERE;
 
 /**
  *
  * @author Marcio
  */
-public class PlayListDAO implements IPlayListDAO{
+public class MusicaDAO implements IMusicaDAO {
     @Override
-    public void adicionarPlayList(PlayList playList) {
+    public void adicionarMusica(Musica musica) {
         EntityManager em = HibernateEntityManagerFactory.getEntityManager();
         try{
             em.getTransaction().begin();
-            em.persist(playList);
+            em.persist(musica);
             em.getTransaction().commit();
         }catch(Exception e){
             e.printStackTrace();
@@ -34,15 +31,13 @@ public class PlayListDAO implements IPlayListDAO{
     }
 
     @Override
-    public List obterPlayList(PlayList playList) {
+    public List obterMusicas(Musica musica) {
         EntityManager em=HibernateEntityManagerFactory.getEntityManager();
-        List playlist = null;      
+        List musicas = null;      
         try{
             Query q = em.createQuery("SELECT object(o) "
-                                    + "FROM PlayList as o"
-                                    + "WHERE login = '"
-                                    + playList.getUsuario().getLogin() + "'");
-            playlist = q.getResultList();
+                                    + "FROM Musica as o");
+            musicas = q.getResultList();
 
             
         }catch(Exception e){
@@ -51,6 +46,6 @@ public class PlayListDAO implements IPlayListDAO{
           if(em!=null){
               em.close();
           }
-        }return playlist;
-    }    
+        }return musicas;
+    }
 }
