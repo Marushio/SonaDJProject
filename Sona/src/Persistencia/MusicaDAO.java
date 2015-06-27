@@ -15,7 +15,11 @@ import javax.persistence.Query;
  *
  * @author Marcio
  */
+
 public class MusicaDAO implements IMusicaDAO {
+    MusicaDAO(){      
+    }
+    
     @Override
     public void adicionarMusica(Musica musica) {
         EntityManager em = HibernateEntityManagerFactory.getEntityManager();

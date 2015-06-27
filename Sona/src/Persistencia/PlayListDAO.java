@@ -18,6 +18,8 @@ import static org.hibernate.hql.internal.antlr.HqlSqlTokenTypes.WHERE;
  * @author Marcio
  */
 public class PlayListDAO implements IPlayListDAO{
+    PlayListDAO(){
+    }
     @Override
     public void adicionarPlayList(PlayList playList) {
         EntityManager em = HibernateEntityManagerFactory.getEntityManager();

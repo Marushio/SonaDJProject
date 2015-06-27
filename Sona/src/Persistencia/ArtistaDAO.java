@@ -15,8 +15,7 @@ import javax.persistence.Query;
  * @author a1320726
  */
 public class ArtistaDAO implements IArtistaDAO{
-    ArtistaDAO(){
-        
+    ArtistaDAO(){   
     }
     
     @Override
