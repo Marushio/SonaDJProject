@@ -5,13 +5,30 @@
  */
 package Model;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 /**
  *
  * @author Marcio
  */
+@Entity
 public class PlayList {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
     private int idPlayList;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Usuario")
     private String login;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Musica")
     private int idMusica;
     
     public int getIdPlayList() {
