@@ -11,7 +11,7 @@ import Model.Usuario;
  *
  * @author Luiz
  */
-public interface IControleLogin {
+public interface IControlePrincipal {
     public abstract Usuario logar(String login, String senha);
     public abstract boolean cadastrar(String login, String senha);
 }

@@ -13,9 +13,9 @@ import Persistencia.PersistenciaFactory;
  *
  * @author Luiz
  */
-public class ControleLogin implements IControleLogin{
+public class ControlePrincipal implements IControlePrincipal{
 
-    ControleLogin() {
+    ControlePrincipal() {
         
     }
 
