@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface IMusicaDAO {
     public abstract void adicionarMusica(Musica musica);
-    public abstract List obterMusica(Musica musica);
+    public abstract List obterMusicas();
 }

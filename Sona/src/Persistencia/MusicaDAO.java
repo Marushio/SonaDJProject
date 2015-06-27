@@ -5,6 +5,7 @@
  */
 package Persistencia;
 
+import Model.Musica;
 import Model.PlayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -31,7 +32,7 @@ public class MusicaDAO implements IMusicaDAO {
     }
 
     @Override
-    public List obterMusicas(Musica musica) {
+    public List obterMusicas() {
         EntityManager em=HibernateEntityManagerFactory.getEntityManager();
         List musicas = null;      
         try{
@@ -48,4 +49,5 @@ public class MusicaDAO implements IMusicaDAO {
           }
         }return musicas;
     }
+
 }
