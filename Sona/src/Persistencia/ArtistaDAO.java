@@ -15,10 +15,11 @@ import javax.persistence.Query;
  * @author a1320726
  */
 public class ArtistaDAO implements IArtistaDAO{
+    
     ArtistaDAO(){   
     }
     
-    @Override
+
     public void novoArtista(Artista artista) {
         EntityManager em = HibernateEntityManagerFactory.getEntityManager();
       try{
@@ -34,7 +35,7 @@ public class ArtistaDAO implements IArtistaDAO{
       }
     }
 
-    @Override
+ 
     public Artista obterArtista(String idArtista) {
         EntityManager em=HibernateEntityManagerFactory.getEntityManager();
         Artista artista = null;

@@ -5,13 +5,15 @@
  */
 package Persistencia;
 
-import Model.Usuario;
+import Model.Album;
+import java.util.List;
 
 /**
  *
  * @author Luiz
  */
-public interface IUsuarioDAO {
-    public abstract void adicionarUsuario(Usuario usuario);
-    public Usuario obterUsuario(String login);
+public interface IAlbumDAO {
+    public abstract void adicionarAlbum(Album album);
+    public abstract List obterTodosAlbum();
+    public abstract Album obterAlbum(int id);
 }

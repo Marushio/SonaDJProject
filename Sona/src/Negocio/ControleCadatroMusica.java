@@ -5,9 +5,14 @@
  */
 package Negocio;
 
+import Model.Album;
+import Model.Artista;
 import Model.Musica;
+import Persistencia.IAlbumDAO;
+import Persistencia.IArtistaDAO;
 import Persistencia.IMusicaDAO;
 import Persistencia.PersistenciaFactory;
+import java.util.List;
 
 /**
  *
@@ -20,5 +25,34 @@ public class ControleCadatroMusica implements IControleCadastroMusica{
         IMusicaDAO musicaDAO = PersistenciaFactory.obterMusicaDAO();
         musicaDAO.adicionarMusica(musica);
     }
-    
+    public void cadastrarArtista(Artista artista){
+        IArtistaDAO artistaDAO = PersistenciaFactory.obterArtistaDAO();
+        artistaDAO.novoArtista(artista);
+    }
+    public void cadastrarAlbum(Album album){
+        IAlbumDAO albumDAO = PersistenciaFactory.obterAlbumDAO();
+        albumDAO.adicionarAlbum(album);
+    }
+   
+    @Override
+    public  List obterTodosAlbum(){
+        IAlbumDAO albumDAO = PersistenciaFactory.obterAlbumDAO();
+        return albumDAO.obterTodosAlbum();
+    }
+    public  List obterTodosMusica(){
+        IMusicaDAO musicaDAO = PersistenciaFactory.obterMusicaDAO();
+        return musicaDAO.obterTodasMusicas();
+    }
+    public  Artista obterArtista(String id){
+        IArtistaDAO artistaDAO = PersistenciaFactory.obterArtistaDAO();
+        return artistaDAO.obterArtista(id);
+    }
+    public  Album obterAlbum(int id){
+        IAlbumDAO albumDAO = PersistenciaFactory.obterAlbumDAO();
+        return albumDAO.obterAlbum(id);
+    }
+    public  Musica obterMusica(int id){
+        IMusicaDAO musicaDAO = PersistenciaFactory.obterMusicaDAO();
+        return musicaDAO.obterMusicas(id);
+    }
 }

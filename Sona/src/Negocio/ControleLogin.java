@@ -35,7 +35,7 @@ public class ControleLogin implements IControleLogin{
         if(usuarioDAO.obterUsuario(login)==null){
             usuario.setLogin(login);
             usuario.setSenha(senha);
-            usuarioDAO.novoUsuario(usuario);
+            usuarioDAO.adicionarUsuario(usuario);
             return true;
         }else{
             System.out.println("Usuário já cadastrado");

@@ -19,7 +19,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
     
     @Override
-    public void novoUsuario(Usuario usuario) {
+    public void adicionarUsuario(Usuario usuario) {
         EntityManager em = HibernateEntityManagerFactory.getEntityManager();
         try{
             em.getTransaction().begin();

@@ -1,5 +1,6 @@
 package Persistencia;
 import Model.Artista;
+import java.util.List;
 
 /**
  *

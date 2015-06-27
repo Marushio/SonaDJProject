@@ -12,12 +12,12 @@ import Model.Musica;
  *
  * @author Luiz
  */
-public class TelaCadastrarMusica extends javax.swing.JPanel {
+public class TelaCadastroMusica extends javax.swing.JPanel {
 
     /**
      * Creates new form TelaCadastrarMusica
      */
-    public TelaCadastrarMusica() {
+    public TelaCadastroMusica() {
         initComponents();
     }
 

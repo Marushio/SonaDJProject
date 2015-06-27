@@ -36,7 +36,7 @@ public class MusicaDAO implements IMusicaDAO {
     }
 
     @Override
-    public List obterMusicas() {
+    public List obterTodasMusicas() {
         EntityManager em=HibernateEntityManagerFactory.getEntityManager();
         List musicas = null;      
         try{
@@ -53,5 +53,23 @@ public class MusicaDAO implements IMusicaDAO {
           }
         }return musicas;
     }
+    public Musica obterMusicas(int id) {
+        EntityManager em=HibernateEntityManagerFactory.getEntityManager();
+        Musica musica = null;      
+        try{
+            Query q = em.createQuery("SELECT object(o) "
+                                    + "FROM Musica as o"
+                                    + "WHERE idMusica = '"
+                                    +id+ "'");
+            musica = (Musica) q.getSingleResult();
 
+            
+        }catch(Exception e){
+          e.printStackTrace();
+        }finally{
+          if(em!=null){
+              em.close();
+          }
+        }return musica;
+    }
 }
