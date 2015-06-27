@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Negocio;
+package Persistencia;
+
+import Model.Musica;
+import java.util.List;
 
 /**
  *
  * @author Luiz
  */
-public class NegocioFactory {
-    
-    public static IControleLogin obterControleLogin(){
-        return new ControleLogin();
-    }
-    
-    
+public interface IMusicaDAO {
+    public abstract void adicionarMusica(Musica musica);
+    public abstract List obterMusica(Musica musica);
 }
