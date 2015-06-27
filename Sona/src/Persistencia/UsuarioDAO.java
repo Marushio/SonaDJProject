@@ -15,8 +15,7 @@ import javax.persistence.Query;
  */
 public class UsuarioDAO implements IUsuarioDAO{
 
-    UsuarioDAO() {
-        
+    UsuarioDAO() {      
     }
     
     @Override
