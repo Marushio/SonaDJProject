@@ -25,11 +25,11 @@ public class PlayList {
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Usuario")
-    private String login;
+    private Usuario usuario;
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Musica")
-    private int idMusica;
+    private Musica musica;
     
     public int getIdPlayList() {
         return idPlayList;
@@ -38,22 +38,24 @@ public class PlayList {
     public void setIdPlayList(int idPlayList) {
         this.idPlayList = idPlayList;
     }
- 
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Musica getMusica() {
+        return musica;
+    }
+
+    public void setMusica(Musica musica) {
+        this.musica = musica;
+    }
+    
   
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public int getIdMusica() {
-        return idMusica;
-    }
-
-    public void setIdMusica(int idMusica) {
-        this.idMusica = idMusica;
-    }
+  
     
 }
