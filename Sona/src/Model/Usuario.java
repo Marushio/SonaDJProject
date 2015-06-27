@@ -21,8 +21,8 @@ public class Usuario {
     
     }    
     @Id
-    String login;
-    String senha;
+    private String login;
+    private String senha;
 
     public void setLogin(String login) {
         this.login = login;
