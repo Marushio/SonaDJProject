@@ -5,10 +5,13 @@
  */
 package Negocio;
 
+import Model.Usuario;
+
 /**
  *
  * @author Luiz
  */
 public interface IControleLogin {
-    public abstract boolean logar(String login, String senha);
+    public abstract Usuario logar(String login, String senha);
+    public abstract boolean cadastrar(String login, String senha);
 }
