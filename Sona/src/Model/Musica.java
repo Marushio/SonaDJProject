@@ -27,6 +27,7 @@ public class Musica {
     private String nomeMusica;
     private double duracao;
     
+    
     @JoinColumn(name = "idAlbum")
     private Album album;
     

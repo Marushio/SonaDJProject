@@ -17,7 +17,7 @@ import javax.persistence.Id;
 @Entity
 public class Usuario {
 
-    public Usuario() {
+    Usuario() {
     
     }    
     @Id
