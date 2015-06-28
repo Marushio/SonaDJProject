@@ -28,12 +28,9 @@ private Usuario usuario=null;
         this.usuario = usuario;
         initComponents();
         jlbUsuario.setText(usuario.getLogin());
-        IControleTelaPlayList controlerTelaPlayList;
-        controlerTelaPlayList = NegocioFactory.obterControleTelaPlayList();
-        List m =controlerTelaPlayList.obterMusicas();
-        MusicasList musicasList= NegocioFactory.obterMusicaList(m);
-        TabelaModelo tabelaModelo = NegocioFactory.obterTabelaModelo(musicasList); 
-        jTable1.setModel(tabelaModelo);
+        atualizaTabela();
+        Thread atualizar = new Thread ( new AtualizaTabela(this));
+        atualizar.start();
         
         //otem marcas e adicionar ao combobox
        
@@ -43,7 +40,14 @@ private Usuario usuario=null;
         
       
     }
-  
+    public void atualizaTabela(){
+        IControleTelaPlayList controlerTelaPlayList;
+        controlerTelaPlayList = NegocioFactory.obterControleTelaPlayList();
+        List m =controlerTelaPlayList.obterMusicas();
+        MusicasList musicasList= NegocioFactory.obterMusicaList(m);
+        TabelaModelo tabelaModelo = NegocioFactory.obterTabelaModelo(musicasList); 
+        jTable1.setModel(tabelaModelo);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
