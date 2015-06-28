@@ -15,12 +15,9 @@ import javax.persistence.Id;
 @Entity
 public class Usuario {
 
-    public Usuario() {
-    
-    }
-    
     @Id
     private String login;
+    
     private String senha;
 
     public void setLogin(String login) {
