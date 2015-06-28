@@ -6,6 +6,7 @@
 package Negocio;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -13,5 +14,6 @@ import java.util.Collection;
  */
 public interface IControleTelaPlayList {
     public abstract Collection obterArtistas();
-    public abstract Collection obterAlbuns(String artista); 
+    public abstract Collection obterAlbuns(String artista);
+    public List obterMusicas(); 
 }

@@ -28,6 +28,9 @@ public class MusicasList extends Observable{
    public MusicasList(){
        musicas = new ArrayList();
    }
+   public MusicasList(List musicas){
+       this.musicas = new ArrayList(musicas);
+   }
    //informa para a prateleira retonar os valores adicionados nela
     public List getMusicasList(){
        return musicas; 

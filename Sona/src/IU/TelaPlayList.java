@@ -11,6 +11,7 @@ import Negocio.IControleTelaPlayList;
 import Negocio.NegocioFactory;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -25,11 +26,13 @@ private Usuario usuario=null;
         this.usuario = usuario;
         initComponents();
         jlbUsuario.setText(usuario.getLogin());
-        //Inicar comobo box
-     
         IControleTelaPlayList controlerTelaPlayList;
-        
         controlerTelaPlayList = NegocioFactory.obterControleTelaPlayList();
+        List m =controlerTelaPlayList.obterMusicas();
+        MusicasList musicasList= new MusicasList(m);
+        TabelaModelo tabelaModelo = new TabelaModelo(musicasList); 
+        jTable1.setModel(tabelaModelo);
+        
         //otem marcas e adicionar ao combobox
        
         
