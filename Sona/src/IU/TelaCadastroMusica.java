@@ -239,7 +239,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
             
             musica.setNomeMusica(nomeMusica);
             musica.setAno(anoMusica);
-            musica.setDuração(duracao);
+            musica.setDuracao(duracao);
             musica.setAlbum(album);
             musica.setArtista(artista);
            
