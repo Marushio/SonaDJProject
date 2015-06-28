@@ -32,7 +32,7 @@ public class ControleTelaPlayList implements IControleTelaPlayList{
     
         IAlbumDAO albumDAO = PersistenciaFactory.obterAlbumDAO();
         if(artista.equals("Nenhum")) {
-            albuns = null;
+            albuns.add("Nenhum");
         } else {
             Collection todosAlbuns = albumDAO.obterTodosAlbum();
             Iterator i = todosAlbuns.iterator();

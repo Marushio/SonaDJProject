@@ -25,7 +25,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
      */
     public TelaCadastroMusica() {
         initComponents();
-          IControleTelaPlayList controleTelaPlayList= NegocioFactory.obterControleTelaPlayList();
+        IControleTelaPlayList controleTelaPlayList= NegocioFactory.obterControleTelaPlayList();
                 
         Collection artistas =controleTelaPlayList.obterArtistas();
         Iterator i = artistas.iterator();
@@ -35,6 +35,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
             Artista a = (Artista) i.next();
             chArtista.addItem(a.getNomeArtista());
         }
+        this.atualizarCbAlbuns();
         
     }
 
@@ -219,10 +220,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         String nomeMusica, nomeAlbum, nomeArtista;
         int anoMusica, anoAlbum, isrc;
         double duracao;
-        
       
-        
-        
         try{
             Album album = new Album();
             Musica musica = new Musica();
@@ -247,7 +245,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
     
     private void atualizarCbAlbuns(){
         cbAlbum.removeAll();
-        String artista = cbAlbum.getSelectedItem();
+        String artista = chArtista.getSelectedItem();
         
         IControleTelaPlayList controleTelaPlayList= NegocioFactory.obterControleTelaPlayList();
                 
@@ -255,11 +253,16 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
      
         
         Iterator i = albuns.iterator();
+        
         while(i.hasNext()) {
-            Album a = (Album) i.next();
-            cbAlbum.addItem(a.getNomeAlbum());
+            try{
+                Album a = (Album) i.next();
+                cbAlbum.addItem(a.getNomeAlbum());
+            }catch(Exception e){
+                cbAlbum.add("Nenhum");
+            }
         }
-        this.atualizarCbAlbuns();
+        
     }
     private void btNovoAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoAlbumActionPerformed
         // TODO add your handling code here:
