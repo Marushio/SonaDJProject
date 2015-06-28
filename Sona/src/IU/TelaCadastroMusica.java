@@ -229,6 +229,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
             anoAlbum = Integer.parseInt(lbNomeMusica.getText());
             isrc = Integer.parseInt(lbNomeMusica.getText());
             duracao = Double.parseDouble(lbNomeMusica.getText());
+            chArtista.getSelectedItem();
 
         }catch(Exception e){
             e.printStackTrace();
