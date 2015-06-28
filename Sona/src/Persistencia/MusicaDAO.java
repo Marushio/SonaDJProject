@@ -6,7 +6,6 @@
 package Persistencia;
 
 import Model.Musica;
-import Model.PlayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;

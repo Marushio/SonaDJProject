@@ -5,7 +5,7 @@
  */
 package Negocio;
 
-import Persistencia.IPlayListDAO;
+
 import Persistencia.PersistenciaFactory;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,13 +16,4 @@ import java.util.Collection;
  */
 public class ControleTelaPlayList implements IControleTelaPlayList{
     
-    
-    
-    public Collection coletarFavoritos(String usuario) {        
-        Collection Favoritos = new ArrayList(); 
-        
-        IPlayListDAO playListDAO = PersistenciaFactory.obterPlayListDAO();       
-        Favoritos = playListDAO.obterPlayList(usuario);
-        return Favoritos;   
-    }
 }

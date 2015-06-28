@@ -12,5 +12,5 @@ import java.util.Collection;
  * @author Marcio
  */
 public interface IControleTelaPlayList {
-     public abstract Collection coletarFavoritos(String usuario);
+    
 }
