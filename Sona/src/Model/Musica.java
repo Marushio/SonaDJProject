@@ -86,9 +86,7 @@ public class Musica {
 
     public void setIsrc(int isrc) {
         this.isrc = isrc;
-    }
-
- 
+    } 
 
     public String getNomeMusica() {
         return nomeMusica;
@@ -96,14 +94,5 @@ public class Musica {
 
     public void setNomeMusica(String nomeMusica) {
         this.nomeMusica = nomeMusica;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-    
+    }    
 }
