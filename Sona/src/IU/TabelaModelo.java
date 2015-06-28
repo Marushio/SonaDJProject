@@ -6,6 +6,7 @@
 package IU;
 
 
+import Model.Musica;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;
@@ -15,26 +16,27 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author a132067x
  */
-public class tabelaModelo extends AbstractTableModel implements Observer{
+public class TabelaModelo extends AbstractTableModel implements Observer{
     //instancia a prateleira  
     private  MusicasList musicasList;
     
     //cria um vetro de string para os nomes das colunas
     String[] nomeColunas = {"Musica","Duraçao","Album", "Artista"}; 
+    private Object musica;
     
     
     //metodo construtor 
     //deve receber o arraylist neste cso prateira para inicializar com um valor
-    public ProdutosTabelaModelo(Prateleira prateleira){
-        this.prateleira=prateleira;
-        prateleira.addObserver(this);
+    public TabelaModelo(MusicasList musicasList){
+        this.musicasList=musicasList;
+        musicasList.addObserver(this);
     }
     
     //conta quantas linhas tera a tabela que é o tabanho 
     @Override
     public int getRowCount() {
         //throw new UnsupportedOperationException("Not supported yet.");
-        return prateleira.size();
+        return musicasList.size();
      }
     //informa quantas colunas terá a tabela que é o tamanho do vetor de nome das colunas
     @Override
@@ -47,52 +49,22 @@ public class tabelaModelo extends AbstractTableModel implements Observer{
         return nomeColunas[col];       
     }
     //informa que as colunas podem ser editadas
-    public boolean isCellEditable(int row, int col){
-         if(col==0){
-            return false;
-        }
-        return true;        
-    }
-    @Override
-    
-    //metodo para poder passar os novos valores editados
-     public void setValueAt(Object value, int row, int col){
-        
-         Produto produto = (Produto) prateleira.get(row);         
-         switch(col){
-            /*
-            case 0:
-                int novoCodigo = Integer.parseInt(value.toString());
-                produto.setCodigo(novoCodigo);                
-                break;
-            */
-            case 1:             
-                produto.setNome(value.toString());                
-                break;
-            case 2:
-                float novoPreco = Float.parseFloat(value.toString());
-                produto.setPreco(novoPreco);
-                break;
-            case 3:
-                produto.setDescricao(value.toString());
-                break;           
-         }        
-     }
+   
     
     @Override
     //retona os valores da pratelira para as colunas da tabela
     public Object getValueAt(int rowIndex, int columnIndex) {
         //throw new UnsupportedOperationException("Not supported yet.");
-        Produto produto = (Produto) prateleira.get(rowIndex);        
+        Musica musica = (Musica) musicasList.get(rowIndex);        
         switch(columnIndex){
             case 0:
-                return produto.getCodigo();
+                return musica.getNomeMusica();
             case 1:
-                return produto.getNome();
+                return musica.getDuracao();
             case 2:
-                return produto.getPreco();
+                return musica.getAlbum().getNomeAlbum();
             case 3:
-                return produto.getDescricao();
+                return musica.getArtista().getNomeArtista();
             default:
                 return "Ocoreu um erro";
         }

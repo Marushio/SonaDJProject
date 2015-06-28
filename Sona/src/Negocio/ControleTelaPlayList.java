@@ -9,10 +9,12 @@ package Negocio;
 import Model.Album;
 import Persistencia.IAlbumDAO;
 import Persistencia.IArtistaDAO;
+import Persistencia.IMusicaDAO;
 import Persistencia.PersistenciaFactory;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -44,6 +46,12 @@ public class ControleTelaPlayList implements IControleTelaPlayList{
             }
         }
         return albuns;
-    }    
+    } 
+    public List obterMusicas() {
+        List musicas;
+        IMusicaDAO musicaDAO = PersistenciaFactory.obterMusicaDAO();
+        musicas=musicaDAO.obterTodasMusicas();
+        return musicas;
+    }
     
 }

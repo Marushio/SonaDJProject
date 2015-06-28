@@ -88,13 +88,7 @@ public class Musica {
         this.isrc = isrc;
     }
 
-    public double getDuração() {
-        return duracao;
-    }
-
-    public void setDuração(double duracao) {
-        this.duracao = duracao;
-    }
+ 
 
     public String getNomeMusica() {
         return nomeMusica;
