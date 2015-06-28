@@ -7,6 +7,7 @@
 package Persistencia;
 
 import Model.Artista;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -45,6 +46,24 @@ public class ArtistaDAO implements IArtistaDAO{
                                     + "WHERE idArtista = '"
                                     + idArtista + "'");
             artista = (Artista) q.getSingleResult();
+            
+        }catch(Exception e){
+          e.printStackTrace();
+        }finally{
+          if(em!=null){
+              em.close();
+          }
+        }return artista;
+    }
+    
+    public List obterTodosArtista() {
+        EntityManager em=HibernateEntityManagerFactory.getEntityManager();
+        List artista = null;
+        try{
+            Query q = em.createQuery("SELECT object(o) "
+                                    + "FROM Artista as o "
+                                    );
+            artista = q.getResultList();
             
         }catch(Exception e){
           e.printStackTrace();

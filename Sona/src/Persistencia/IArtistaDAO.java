@@ -9,4 +9,5 @@ import java.util.List;
 public interface IArtistaDAO {
     public abstract void novoArtista(Artista artista);
     public abstract Artista obterArtista(String idArtista);
+    public abstract List obterTodosArtista();
 }
