@@ -20,11 +20,13 @@ public class ControleLogin implements IControleLogin{
     }
 
     @Override
-    public Usuario logar(String login, String senha) {
+    public Usuario logar (String login, String senha) {
         IUsuarioDAO usuarioDAO = PersistenciaFactory.obterUsuarioDAO();
         Usuario usuario = usuarioDAO.obterUsuario(login);
-        if(senha.equals(usuario.getSenha()))
-            return usuario;
+        if(usuario != null){
+            if(senha.equals(usuario.getSenha()))
+                return usuario;   
+        }
         return null;
     }
 

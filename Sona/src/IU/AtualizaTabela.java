@@ -20,7 +20,7 @@ public class AtualizaTabela implements Runnable{
         try{
             while(true){
                 tela.atualizaTabela();
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             }
         }catch(InterruptedException e){
             
