@@ -88,7 +88,7 @@ public class TelaCadastroArtista extends javax.swing.JFrame {
         // TODO add your handling code here:
         IControleCadastro controleCadastro = NegocioFactory.obterControleCadastro();
         Artista artista = new Artista();
-        String nome = lbNomeArtista.getText();
+        String nome = tfNomeArtista.getText();
         artista.setNomeArtista(nome);
         controleCadastro.cadastrarArtista(artista);
         TelaCadastroAlbum tca = new TelaCadastroAlbum(artista);
