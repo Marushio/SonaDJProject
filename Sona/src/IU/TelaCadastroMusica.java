@@ -6,7 +6,13 @@
 package IU;
 
 import Model.Album;
+import Model.Artista;
 import Model.Musica;
+import Negocio.IControleCadastro;
+import Negocio.IControleTelaPlayList;
+import Negocio.NegocioFactory;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
  *
@@ -40,12 +46,12 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         tfNomeMusica = new javax.swing.JTextField();
         tfAnoMusica = new javax.swing.JTextField();
         tfDuracao = new javax.swing.JTextField();
-        cbNomeArtista = new javax.swing.JComboBox();
         lbNomeArtista = new javax.swing.JLabel();
         lbNomeAlbum = new javax.swing.JLabel();
         cbNomeAlbum = new javax.swing.JComboBox();
         btNovoArtista = new javax.swing.JButton();
         btNovoAlbum = new javax.swing.JButton();
+        chArtista = new java.awt.Choice();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,8 +71,6 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         });
 
         btCancelar.setText("Cancelar");
-
-        cbNomeArtista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lbNomeArtista.setText("Artista.:");
 
@@ -92,10 +96,6 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbTitulo)
-                .addGap(127, 127, 127))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(btCadastrar)
@@ -117,15 +117,19 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
                             .addComponent(lbNomeAlbum))
                         .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbNomeArtista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfAnoMusica, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                             .addComponent(tfDuracao)
-                            .addComponent(cbNomeAlbum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cbNomeAlbum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btNovoArtista)
                     .addComponent(btNovoAlbum))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbTitulo)
+                .addGap(127, 127, 127))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,10 +148,11 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
                     .addComponent(lbDuracao)
                     .addComponent(tfDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNomeArtista)
-                    .addComponent(btNovoArtista))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbNomeArtista)
+                        .addComponent(btNovoArtista))
+                    .addComponent(chArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNomeAlbum)
@@ -189,6 +194,20 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         String nomeMusica, nomeAlbum, nomeArtista;
         int anoMusica, anoAlbum, isrc;
         double duracao;
+        
+        IControleTelaPlayList controleTelaPlayList= NegocioFactory.obterControleTelaPlayList();
+                
+        Collection artistas =controleTelaPlayList.obterArtistas();
+        Iterator i = artistas.iterator();
+        chArtista.add("Nenhum");
+        
+        while(i.hasNext()) {
+            Artista a = (Artista) i.next();
+            chArtista.addItem(a.getNomeArtista());
+        }
+        
+        
+        
         try{
             Album album = new Album();
             Musica musica = new Musica();
@@ -229,7 +248,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
     private javax.swing.JButton btNovoAlbum;
     private javax.swing.JButton btNovoArtista;
     private javax.swing.JComboBox cbNomeAlbum;
-    private javax.swing.JComboBox cbNomeArtista;
+    private java.awt.Choice chArtista;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbAnoMusica;
     private javax.swing.JLabel lbDuracao;

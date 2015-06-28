@@ -52,11 +52,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lbTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="btCadastrar" min="-2" max="-2" attributes="0"/>
@@ -81,10 +76,10 @@
                           </Group>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cbNomeArtista" alignment="0" max="32767" attributes="0"/>
                               <Component id="tfAnoMusica" alignment="0" pref="152" max="32767" attributes="0"/>
                               <Component id="tfDuracao" alignment="0" max="32767" attributes="0"/>
                               <Component id="cbNomeAlbum" alignment="0" max="32767" attributes="0"/>
+                              <Component id="chArtista" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -94,6 +89,11 @@
                       <Component id="btNovoAlbum" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="lbTitulo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -117,10 +117,12 @@
                       <Component id="tfDuracao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cbNomeArtista" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbNomeArtista" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btNovoArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbNomeArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btNovoArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="chArtista" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -178,18 +180,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfDuracao">
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbNomeArtista">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lbNomeArtista">
           <Properties>
             <Property name="text" type="java.lang.String" value="Artista.:"/>
@@ -227,6 +217,8 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNovoAlbumActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="java.awt.Choice" name="chArtista">
         </Component>
       </SubComponents>
     </Container>

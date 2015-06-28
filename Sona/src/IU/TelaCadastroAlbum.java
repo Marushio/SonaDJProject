@@ -24,8 +24,7 @@ private Artista artista=null;
     }
     private void obterArtistas(){
         IControleCadastro controleCadastro = NegocioFactory.obterControleCadastro();
-        controleCadastro.
-        cbNomeArtista.add()
+        //controleCadastro.cbNomeArtista.add();
     }
     /**
      * This method is called from within the constructor to initialize the form.

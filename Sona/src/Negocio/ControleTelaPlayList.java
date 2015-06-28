@@ -6,6 +6,8 @@
 package Negocio;
 
 
+import Model.Album;
+import Persistencia.IAlbumDAO;
 import Persistencia.IArtistaDAO;
 import Persistencia.PersistenciaFactory;
 import java.util.ArrayList;
@@ -21,26 +23,27 @@ public class ControleTelaPlayList implements IControleTelaPlayList{
         Collection artistas = new ArrayList(); 
      
         IArtistaDAO artistaDAO = PersistenciaFactory.obterArtistaDAO();
-        //marcasDisponiveis = marcaDAO.obterMarcasCadastrados();
+    
+        artistas=artistaDAO.obterTodosArtista();
         return artistas;   
     }
     public Collection obterAlbuns(String artista) {
-        Collection modelosDisponiveis=new ArrayList();
-        persistenciaFactory =  new PersistenciaFactory();
-        IModeloDAO modeloDAO = persistenciaFactory.obterModeloDAO();
-        if(marca.equals("Todos")) {
-            modelosDisponiveis = modeloDAO.obterModelosCadastrados();
+        Collection albuns = new ArrayList();
+    
+        IAlbumDAO albumDAO = PersistenciaFactory.obterAlbumDAO();
+        if(artista.equals("Nenhum")) {
+            albuns = null;
         } else {
-            Collection modelosCadastrados = modeloDAO.obterModelosCadastrados();
-            Iterator i = modelosCadastrados.iterator();
+            Collection todosAlbuns = albumDAO.obterTodosAlbum();
+            Iterator i = todosAlbuns.iterator();
             while(i.hasNext()) {
-                Modelo m = (Modelo) i.next();
-                if (m.getMarca().getNome().equals(marca)) {
-                    modelosDisponiveis.add(m);
+                Album a = (Album) i.next();
+                if (a.getArtista().getNomeArtista().equals(artista)) {
+                    albuns.add(a);
                 }
             }
         }
-        return modelosDisponiveis;
+        return albuns;
     }    
     
 }

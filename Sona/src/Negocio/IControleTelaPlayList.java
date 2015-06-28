@@ -12,5 +12,6 @@ import java.util.Collection;
  * @author Marcio
  */
 public interface IControleTelaPlayList {
-    
+    public abstract Collection obterArtistas();
+    public abstract Collection obterAlbuns(String artista); 
 }
