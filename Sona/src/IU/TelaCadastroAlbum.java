@@ -6,6 +6,8 @@
 package IU;
 
 import Model.Artista;
+import Negocio.IControleCadastro;
+import Negocio.NegocioFactory;
 
 /**
  *
@@ -20,7 +22,11 @@ private Artista artista=null;
         this.artista = artista;
         initComponents();
     }
-
+    private void obterArtistas(){
+        IControleCadastro controleCadastro = NegocioFactory.obterControleCadastro();
+        controleCadastro.
+        cbNomeArtista.add()
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
