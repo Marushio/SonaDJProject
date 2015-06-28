@@ -64,6 +64,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         btNovoAlbum = new javax.swing.JButton();
         cbAlbum = new java.awt.Choice();
         chArtista = new java.awt.Choice();
+        jlAvisos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,41 +120,45 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(btCadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btCancelar)
-                .addGap(69, 69, 69))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(45, 45, 45)
+                .addComponent(lbTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbNomeMusica)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNomeMusica))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btCadastrar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbAnoMusica)
-                            .addComponent(lbDuracao)
-                            .addComponent(lbNomeArtista)
-                            .addComponent(lbNomeAlbum))
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfAnoMusica)
-                            .addComponent(tfDuracao)
-                            .addComponent(cbAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(chArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(lbNomeMusica)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfNomeMusica))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbAnoMusica)
+                                    .addComponent(lbDuracao)
+                                    .addComponent(lbNomeArtista)
+                                    .addComponent(lbNomeAlbum))
+                                .addGap(14, 14, 14)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfAnoMusica)
+                                    .addComponent(tfDuracao)
+                                    .addComponent(cbAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(chArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btNovoAlbum)
-                    .addComponent(btNovoArtista))
-                .addGap(860, 860, 860))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbTitulo)
-                .addGap(127, 127, 127))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btNovoAlbum)
+                            .addComponent(btNovoArtista))
+                        .addGap(860, 860, 860))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btCancelar)
+                        .addGap(69, 69, 69))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,8 +191,8 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
                     .addComponent(cbAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastrar)
-                    .addComponent(btCancelar))
+                    .addComponent(btCancelar)
+                    .addComponent(btCadastrar))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -195,21 +200,27 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1183, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(jlAvisos, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(224, Short.MAX_VALUE)
+                .addComponent(jlAvisos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -221,28 +232,39 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         int anoMusica;
         double duracao;
       
-        try{
-            Album album = new Album();
-            Musica musica = new Musica();
-            Artista artista = new Artista();
-            
-            nomeMusica = tfNomeMusica.getText();
+        
+        Album album = new Album();
+        Musica musica = new Musica();
+        Artista artista = new Artista();
+        try{          
             anoMusica = Integer.parseInt(tfAnoMusica.getText());
-            duracao = Double.parseDouble(tfDuracao.getText());   
-            
-            
+            duracao = Double.parseDouble(tfDuracao.getText()); 
+            musica.setAno(anoMusica);
+            musica.setDuracao(duracao);
+        }catch(Exception e){
+            jlAvisos.setText("Ano e Duração devem ser numeros!");
+           
+        }
+        try{ 
+            nomeMusica = tfNomeMusica.getText();
+            if(nomeMusica.equals("")){
+               throw new IllegalArgumentException("A musica deve ter um nome!");
+            } 
             IControleCadastro controleCadastro = NegocioFactory.obterControleCadastro();
             nomeArtista = chArtista.getSelectedItem();
+            if(nomeArtista.equals("Nenhum")){
+                throw new IllegalArgumentException("Por favor escolha um artista");
+            }else{
+                artista = controleCadastro.obterArtista(nomeArtista);
+            }
             nomeAlbum = cbAlbum.getSelectedItem();
-            artista = controleCadastro.obterArtista(nomeArtista);
+            
             if(nomeAlbum.equals("Nenhum")){
-                album.setNomeAlbum("Nenhum");
+                throw new IllegalArgumentException("Por favor escolha album");
             }else{
                 album = controleCadastro.obterAlbum(nomeAlbum);
             }
-            musica.setNomeMusica(nomeMusica);
-            musica.setAno(anoMusica);
-            musica.setDuracao(duracao);
+            musica.setNomeMusica(nomeMusica); 
             musica.setAlbum(album);
             musica.setArtista(artista);
            
@@ -251,7 +273,8 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
             super.repaint();
             this.dispose();
         }catch(Exception e){
-            e.printStackTrace();
+            jlAvisos.setText(e.getMessage());
+           
         }
 
     }//GEN-LAST:event_btCadastrarActionPerformed
@@ -316,6 +339,7 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
     private java.awt.Choice cbAlbum;
     private java.awt.Choice chArtista;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jlAvisos;
     private javax.swing.JLabel lbAnoMusica;
     private javax.swing.JLabel lbDuracao;
     private javax.swing.JLabel lbNomeAlbum;

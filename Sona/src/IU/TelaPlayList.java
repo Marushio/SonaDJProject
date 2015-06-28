@@ -122,8 +122,7 @@ private Usuario usuario=null;
 
     private void btAddNovaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddNovaMusicaActionPerformed
         
-        TelaCadastroMusica tp = new TelaCadastroMusica();
-            
+        TelaCadastroMusica tp = new TelaCadastroMusica(); 
         tp.setVisible(true);
     }//GEN-LAST:event_btAddNovaMusicaActionPerformed
     
