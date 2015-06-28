@@ -235,8 +235,11 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
             nomeArtista = chArtista.getSelectedItem();
             nomeAlbum = cbAlbum.getSelectedItem();
             artista = controleCadastro.obterArtista(nomeArtista);
-            album = controleCadastro.obterAlbum(nomeAlbum);
-            
+            if(nomeAlbum.equals("Nenhum")){
+                album.setNomeAlbum("Nenhum");
+            }else{
+                album = controleCadastro.obterAlbum(nomeAlbum);
+            }
             musica.setNomeMusica(nomeMusica);
             musica.setAno(anoMusica);
             musica.setDuracao(duracao);
@@ -270,10 +273,14 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
         Iterator i = albuns.iterator();
         
         while(i.hasNext()) {
-            try{
-                Album a = (Album) i.next();
-                cbAlbum.addItem(a.getNomeAlbum());
-            }catch(Exception e){
+            if(i!=null){
+                try{
+                    Album a = (Album) i.next();
+                    cbAlbum.addItem(a.getNomeAlbum());
+                }catch(Exception e){
+                    cbAlbum.add("Nenhum");
+                }
+            }else{
                 cbAlbum.add("Nenhum");
             }
         }

@@ -118,7 +118,7 @@ private Usuario usuario=null;
         
         TelaCadastroMusica tp = new TelaCadastroMusica();
             
-            tp.setVisible(true);
+        tp.setVisible(true);
     }//GEN-LAST:event_btAddNovaMusicaActionPerformed
     
     /**

@@ -42,7 +42,7 @@ public class AlbumDAO implements IAlbumDAO{
         Album album = null;
         try{
             Query q = em.createQuery("SELECT object(o) "
-                                    + "FROM Artista as o "
+                                    + "FROM Album as o "
                                     + "WHERE nomeAlbum = '"
                                     +nomeAlbum+ "'");
             album = (Album)q.getSingleResult();
@@ -60,7 +60,7 @@ public class AlbumDAO implements IAlbumDAO{
         List album = null;
         try{
             Query q = em.createQuery("SELECT object(o) "
-                                    + "FROM Artista as o "
+                                    + "FROM Album as o "
                                     );
             album = q.getResultList();
             
