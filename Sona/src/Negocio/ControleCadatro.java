@@ -43,13 +43,13 @@ public class ControleCadatro implements IControleCadastro{
         IMusicaDAO musicaDAO = PersistenciaFactory.obterMusicaDAO();
         return musicaDAO.obterTodasMusicas();
     }
-    public  Artista obterArtista(String id){
+    public  Artista obterArtista(String nomeArtista){
         IArtistaDAO artistaDAO = PersistenciaFactory.obterArtistaDAO();
-        return artistaDAO.obterArtista(id);
+        return artistaDAO.obterArtista(nomeArtista);
     }
-    public  Album obterAlbum(int id){
+    public  Album obterAlbum(String nomeAlbum){
         IAlbumDAO albumDAO = PersistenciaFactory.obterAlbumDAO();
-        return albumDAO.obterAlbum(id);
+        return albumDAO.obterAlbum(nomeAlbum);
     }
     public  Musica obterMusica(int id){
         IMusicaDAO musicaDAO = PersistenciaFactory.obterMusicaDAO();

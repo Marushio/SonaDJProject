@@ -218,19 +218,33 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
         String nomeMusica, nomeAlbum, nomeArtista;
-        int anoMusica, anoAlbum, isrc;
+        int anoMusica;
         double duracao;
       
         try{
             Album album = new Album();
             Musica musica = new Musica();
-            nomeMusica = lbNomeMusica.getText();
-            anoMusica = Integer.parseInt(lbNomeMusica.getText());
-            anoAlbum = Integer.parseInt(lbNomeMusica.getText());
-            isrc = Integer.parseInt(lbNomeMusica.getText());
-            duracao = Double.parseDouble(lbNomeMusica.getText());
-            chArtista.getSelectedItem();
-
+            Artista artista = new Artista();
+            
+            nomeMusica = tfNomeMusica.getText();
+            anoMusica = Integer.parseInt(tfAnoMusica.getText());
+            duracao = Double.parseDouble(tfDuracao.getText());   
+            
+            
+            IControleCadastro controleCadastro = NegocioFactory.obterControleCadastro();
+            nomeArtista = chArtista.getSelectedItem();
+            nomeAlbum = cbAlbum.getSelectedItem();
+            artista = controleCadastro.obterArtista(nomeArtista);
+            album = controleCadastro.obterAlbum(nomeAlbum);
+            
+            musica.setNomeMusica(nomeMusica);
+            musica.setAno(anoMusica);
+            musica.setDuração(duracao);
+            musica.setAlbum(album);
+            musica.setArtista(artista);
+           
+            controleCadastro.cadastrarMusica(musica);
+            this.dispose();
         }catch(Exception e){
             e.printStackTrace();
         }

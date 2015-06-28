@@ -37,14 +37,14 @@ public class ArtistaDAO implements IArtistaDAO{
     }
 
  
-    public Artista obterArtista(String idArtista) {
+    public Artista obterArtista(String nomeArtista) {
         EntityManager em=HibernateEntityManagerFactory.getEntityManager();
         Artista artista = null;
         try{
             Query q = em.createQuery("SELECT object(o) "
                                     + "FROM Artista as o "
-                                    + "WHERE idArtista = '"
-                                    + idArtista + "'");
+                                    + "WHERE nomeArtista = '"
+                                    + nomeArtista + "'");
             artista = (Artista) q.getSingleResult();
             
         }catch(Exception e){

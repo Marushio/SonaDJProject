@@ -8,6 +8,6 @@ import java.util.List;
  */
 public interface IArtistaDAO {
     public abstract void novoArtista(Artista artista);
-    public abstract Artista obterArtista(String idArtista);
+    public abstract Artista obterArtista(String nomeArtista);
     public abstract List obterTodosArtista();
 }
