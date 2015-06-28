@@ -37,7 +37,6 @@ public class Musica {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idArtista")
     private Artista artista;
-    private String genero;
     private int isrc;
 
     public double getDuracao() {
