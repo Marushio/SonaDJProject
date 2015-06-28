@@ -21,6 +21,6 @@ public interface IControleCadastro {
     public abstract List obterTodosAlbum();
     public abstract List obterTodosMusica();
     public abstract Artista obterArtista(String id);
-    public abstract Album obterAlbum(int id);
+    public abstract Album obterAlbum(String nomeAlbum);
     public abstract Musica obterMusica(int id);   
 }

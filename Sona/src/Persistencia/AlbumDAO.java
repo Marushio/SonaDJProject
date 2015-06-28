@@ -37,14 +37,14 @@ public class AlbumDAO implements IAlbumDAO{
     }
 
 
-    public Album obterAlbum(int id) {
+    public Album obterAlbum(String nomeAlbum) {
          EntityManager em=HibernateEntityManagerFactory.getEntityManager();
         Album album = null;
         try{
             Query q = em.createQuery("SELECT object(o) "
                                     + "FROM Artista as o "
-                                    + "WHERE idAlbum = '"
-                                    +id+ "'");
+                                    + "WHERE nomeAlbum = '"
+                                    +nomeAlbum+ "'");
             album = (Album)q.getSingleResult();
             
         }catch(Exception e){

@@ -5,9 +5,15 @@
  */
 package IU;
 
+import Model.Album;
 import Model.Artista;
 import Negocio.IControleCadastro;
+import Negocio.IControleTelaPlayList;
 import Negocio.NegocioFactory;
+import Persistencia.PersistenciaFactory;
+import java.util.Collection;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,11 +27,18 @@ private Artista artista=null;
     public TelaCadastroAlbum(Artista artista) {
         this.artista = artista;
         initComponents();
+        IControleTelaPlayList controleTelaPlayList= NegocioFactory.obterControleTelaPlayList();
+                
+        Collection artistas =controleTelaPlayList.obterArtistas();
+        Iterator i = artistas.iterator();
+        chArtista.add("Nenhum");
+        
+        while(i.hasNext()) {
+            Artista a = (Artista) i.next();
+            chArtista.addItem(a.getNomeArtista());
+        }
     }
-    private void obterArtistas(){
-        IControleCadastro controleCadastro = NegocioFactory.obterControleCadastro();
-        //controleCadastro.cbNomeArtista.add();
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,11 +56,10 @@ private Artista artista=null;
         tfNomeAlbum = new javax.swing.JTextField();
         tfIsrc = new javax.swing.JTextField();
         tfAnoAlbum = new javax.swing.JTextField();
-        cbNomeArtista = new javax.swing.JComboBox();
         lbNomeArtista = new javax.swing.JLabel();
         btSalvarAlbum = new javax.swing.JButton();
-        btCancelar = new javax.swing.JButton();
         btNovoArtista = new javax.swing.JButton();
+        chArtista = new java.awt.Choice();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,21 +71,12 @@ private Artista artista=null;
 
         lbIsrc.setText("ISRC.:");
 
-        cbNomeArtista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         lbNomeArtista.setText("Artista.:");
 
         btSalvarAlbum.setText("Salvar Album");
         btSalvarAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSalvarAlbumActionPerformed(evt);
-            }
-        });
-
-        btCancelar.setText("Cancelar");
-        btCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCancelarActionPerformed(evt);
             }
         });
 
@@ -93,9 +96,9 @@ private Artista artista=null;
                 .addComponent(lbTituloTela)
                 .addGap(134, 134, 134))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lbIsrc)
@@ -111,14 +114,13 @@ private Artista artista=null;
                                     .addComponent(lbNomeArtista))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfAnoAlbum)
-                                    .addComponent(cbNomeArtista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(tfAnoAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                    .addComponent(chArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btNovoArtista))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btSalvarAlbum)
-                        .addGap(93, 93, 93)
-                        .addComponent(btCancelar)))
+                        .addGap(156, 156, 156)
+                        .addComponent(btSalvarAlbum)))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,22 +140,21 @@ private Artista artista=null;
                     .addComponent(lbAnoAlbum)
                     .addComponent(tfAnoAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbNomeArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNomeArtista)
-                    .addComponent(btNovoArtista))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSalvarAlbum)
-                    .addComponent(btCancelar))
-                .addGap(31, 31, 31))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbNomeArtista)
+                        .addComponent(btNovoArtista))
+                    .addComponent(chArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btSalvarAlbum)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -162,7 +163,7 @@ private Artista artista=null;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 303, Short.MAX_VALUE)
+            .addGap(0, 307, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -175,11 +176,23 @@ private Artista artista=null;
 
     private void btSalvarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarAlbumActionPerformed
         // TODO add your handling code here:
+        try{
+            Artista artista = new Artista();
+            
+            IControleCadastro controleCadastro = NegocioFactory.obterControleCadastro();
+            String nomeArtista = chArtista.getSelectedItem();
+            artista=controleCadastro.obterArtista(nomeArtista);
+            Album album = new Album();
+            album.setNomeAlbum(tfNomeAlbum.getText());
+            album.setAno(Integer.parseInt(tfAnoAlbum.getText()));
+            album.setIsrc(Integer.parseInt(tfIsrc.getText()));
+            album.setArtista(artista);
+            controleCadastro.cadastrarAlbum(album);
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Coloque apenas numeros nos campos Ano e ISRC");
+        }
     }//GEN-LAST:event_btSalvarAlbumActionPerformed
-
-    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btNovoArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoArtistaActionPerformed
         // TODO add your handling code here:
@@ -194,10 +207,9 @@ private Artista artista=null;
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCancelar;
     private javax.swing.JButton btNovoArtista;
     private javax.swing.JButton btSalvarAlbum;
-    private javax.swing.JComboBox cbNomeArtista;
+    private java.awt.Choice chArtista;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbAnoAlbum;
     private javax.swing.JLabel lbIsrc;
