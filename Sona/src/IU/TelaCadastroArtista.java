@@ -91,8 +91,6 @@ public class TelaCadastroArtista extends javax.swing.JFrame {
         String nome = tfNomeArtista.getText();
         artista.setNomeArtista(nome);
         controleCadastro.cadastrarArtista(artista);
-        TelaCadastroAlbum tca = new TelaCadastroAlbum(artista);
-        tca.setVisible(true);
         this.dispose();        
     }//GEN-LAST:event_brSalvarActionPerformed
 

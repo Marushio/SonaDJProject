@@ -188,7 +188,7 @@ private Artista artista=null;
             album.setIsrc(Integer.parseInt(tfIsrc.getText()));
             album.setArtista(artista);
             controleCadastro.cadastrarAlbum(album);
-            
+            this.dispose();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Coloque apenas numeros nos campos Ano e ISRC");
         }
