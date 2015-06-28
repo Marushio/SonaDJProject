@@ -20,7 +20,7 @@ public class tabelaModelo extends AbstractTableModel implements Observer{
     private  MusicasList musicasList;
     
     //cria um vetro de string para os nomes das colunas
-    String[] nomeColunas = {"Codigo","Nome","Preco (R$)", "Descrição"}; 
+    String[] nomeColunas = {"Musica","Duraçao","Album", "Artista"}; 
     
     
     //metodo construtor 
