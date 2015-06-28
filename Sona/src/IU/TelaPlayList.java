@@ -53,7 +53,7 @@ private Usuario usuario=null;
     private void initComponents() {
 
         jlbUsuario = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btAddNovaMusica = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -64,10 +64,10 @@ private Usuario usuario=null;
         jlbUsuario.setText("Usuario");
         jlbUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton1.setText("Add nova musica");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btAddNovaMusica.setText("Add nova musica");
+        btAddNovaMusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btAddNovaMusicaActionPerformed(evt);
             }
         });
 
@@ -92,7 +92,7 @@ private Usuario usuario=null;
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btAddNovaMusica)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(193, 193, 193)
@@ -106,7 +106,7 @@ private Usuario usuario=null;
                 .addComponent(jlbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAddNovaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
@@ -114,13 +114,12 @@ private Usuario usuario=null;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btAddNovaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddNovaMusicaActionPerformed
         
         TelaCadastroMusica tp = new TelaCadastroMusica();
             
             tp.setVisible(true);
-            this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btAddNovaMusicaActionPerformed
     
     /**
      * @param args the command line arguments
@@ -128,7 +127,7 @@ private Usuario usuario=null;
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btAddNovaMusica;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel jlbUsuario;
