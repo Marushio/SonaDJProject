@@ -5,6 +5,9 @@
  */
 package Negocio;
 
+import Persistencia.IMusicaDAO;
+import java.util.List;
+
 /**
  *
  * @author Luiz
@@ -21,5 +24,11 @@ public class NegocioFactory {
     
     public static IControleTelaPlayList obterControleTelaPlayList (){
         return  new ControleTelaPlayList();
+    }
+    public static MusicasList obterMusicaList(List list){
+        return  new MusicasList(list);
+    }
+    public static TabelaModelo obterTabelaModelo(MusicasList ml){
+        return  new TabelaModelo(ml);
     }
 }

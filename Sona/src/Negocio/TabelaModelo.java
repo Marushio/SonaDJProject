@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package IU;
+package Negocio;
 
 
+import Negocio.MusicasList;
 import Model.Musica;
 import java.util.Observable;
 import java.util.Observer;
@@ -24,10 +25,11 @@ public class TabelaModelo extends AbstractTableModel implements Observer{
     String[] nomeColunas = {"Musica","Duraçao","Album", "Artista"}; 
     private Object musica;
     
-    
+    TabelaModelo(){
+    }
     //metodo construtor 
     //deve receber o arraylist neste cso prateira para inicializar com um valor
-    public TabelaModelo(MusicasList musicasList){
+    TabelaModelo(MusicasList musicasList){
         this.musicasList=musicasList;
         musicasList.addObserver(this);
     }

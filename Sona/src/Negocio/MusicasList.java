@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package IU;
+package Negocio;
 
 /**
  *
@@ -25,10 +25,10 @@ public class MusicasList extends Observable{
    private List musicas; 
    
    //informa que se o metodo pratleira for instciado ele cria uma nova ArrayList
-   public MusicasList(){
+   MusicasList(){
        musicas = new ArrayList();
    }
-   public MusicasList(List musicas){
+    MusicasList(List musicas){
        this.musicas = new ArrayList(musicas);
    }
    //informa para a prateleira retonar os valores adicionados nela

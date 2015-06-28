@@ -6,6 +6,8 @@
 package IU;
 
 
+import Negocio.TabelaModelo;
+import Negocio.MusicasList;
 import Model.Usuario;
 import Negocio.IControleTelaPlayList;
 import Negocio.NegocioFactory;
@@ -29,8 +31,8 @@ private Usuario usuario=null;
         IControleTelaPlayList controlerTelaPlayList;
         controlerTelaPlayList = NegocioFactory.obterControleTelaPlayList();
         List m =controlerTelaPlayList.obterMusicas();
-        MusicasList musicasList= new MusicasList(m);
-        TabelaModelo tabelaModelo = new TabelaModelo(musicasList); 
+        MusicasList musicasList= NegocioFactory.obterMusicaList(m);
+        TabelaModelo tabelaModelo = NegocioFactory.obterTabelaModelo(musicasList); 
         jTable1.setModel(tabelaModelo);
         
         //otem marcas e adicionar ao combobox

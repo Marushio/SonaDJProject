@@ -247,6 +247,8 @@ public class TelaCadastroMusica extends javax.swing.JFrame {
             musica.setArtista(artista);
            
             controleCadastro.cadastrarMusica(musica);
+            super.revalidate();
+            super.repaint();
             this.dispose();
         }catch(Exception e){
             e.printStackTrace();
